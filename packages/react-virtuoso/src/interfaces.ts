@@ -294,7 +294,7 @@ const defaultCalculateViewLocation: CalculateViewLocation = ({
   /**
    * Will be called when the scroll is done, or immediately if no scroll is needed.
    */
-  done?: () => void
+  done?: (location: IndexLocationWithAlign | null | number) => void
 }
 
 export interface ScrollSeekConfiguration {

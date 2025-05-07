@@ -63,10 +63,12 @@ export const scrollIntoViewSystem = u.system(
                   // but if scrollingInProgress is true, we skip the initial publish.
                   u.skip(u.getValue(scrollingInProgress) ? 1 : 2)
                 ),
-                done
+                () => {
+                  done(location) // Pass the calculated location to the done callback
+                }
               )
           } else {
-            done && done()
+            done && done(null) // No scroll was needed, pass null
           }
 
           return location
